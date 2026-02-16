@@ -58,15 +58,15 @@ agregarContacto("Eduardo", "987654321", "Eduarditopapito@hotmail.com");
 agregarContacto("Ana", "123456789", "ana@gmail.com");
 console.log(contactos)
 
-//Eliminar contacto
-eliminarContacto(1)
-console.log(contactos)
-
 //Buscar contacto
 console.log(buscarContacto("Lucia"));
 
 //Actualizar contacto
 console.log(actualizarContacto(1,"Lucia", "123456789", "luciaperez@hotmail.com"))
+
+//Eliminar contacto
+eliminarContacto(1)
+console.log(contactos)
 
 //Exportar Json
 console.log("\nExportar JSON:\n", exportarJSON(contactos));

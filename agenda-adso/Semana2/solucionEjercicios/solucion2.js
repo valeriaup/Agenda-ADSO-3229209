@@ -6,6 +6,7 @@ const productos = [
 
 // FUNCIÓN 1: obtener Disponibles(productos)
 const disponibles = productos.filter(n => n.stock >0);
+console.log(disponibles)
 
 // FUNCIÓN 2: calcularInventario(productos)
 const stocks = productos.map(a => a.stock)
@@ -19,6 +20,7 @@ const aplicarDescuento = (productos, porcentaje) => productos.map(p => ({
     nombre: p.nombre,
     precio: p.precio - (p.precio * porcentaje / 100)
   }));
+console.log(aplicarDescuento(productos, 10))
 
 // FUNCIÓN 4: ordenarPorPrecio(productos)
 const precio = productos.sort((a,b) => a.precio - b.precio)

@@ -9,7 +9,7 @@ export default function App(){ const fecha = new Date().toLocaleString(); return
   </main>
 )}*/
 
-import "./App.css"; // Importamos estilos de la app
+/*import "./App.css"; // Importamos estilos de la app
 import ContactoCard from "./Components/ContactoCard/"; // Importamos el componente hijo
 
 export default function App() {
@@ -57,7 +57,7 @@ export default function App() {
       <h1 className="app-title">Agenda ADSO</h1>
       <p className="app-subtitle">Contactos guardados</p>
 
-      {/* Recorremos el arreglo contactos y pintamos una tarjeta por cada uno */}
+      {/* Recorremos el arreglo contactos y pintamos una tarjeta por cada uno}
       {contactos.map((c) => (
         <ContactoCard
           key={c.id}        // key única para React
@@ -71,6 +71,55 @@ export default function App() {
       <p className="app-nota">
         (Versión 0.1 - solo lectura, sin agregar ni editar todavía)
       </p>
+    </main>
+  );
+}*/
+
+import { useState } from "react";
+import "./App.css";
+import ContactoCard from "./components/ContactoCard";
+import FormularioContacto from "./Components/FormularioContacto";
+
+export default function App() {
+  const [contactos, setContactos] = useState([
+    {
+      id: 1,
+      nombre: "Carolina Pérez",
+      telefono: "300 123 4567",
+      correo: "carolina@sena.edu.co",
+      etiqueta: "Compañera",
+    },
+  ]);
+
+  // Agregar contacto
+  const agregarContacto = (nuevo) => {
+    setContactos((prev) => [...prev, { id: Date.now(), ...nuevo }]);
+  };
+
+  // Eliminar contacto
+  const eliminarContacto = (id) => {
+    setContactos((prev) => prev.filter((c) => c.id !== id));
+  };
+
+  return (
+    <main className="app-container">
+      <h1 className="app-title">Agenda ADSO v2</h1>
+
+      <FormularioContacto onAgregar={agregarContacto} />
+
+      <section className="lista-contactos">
+        {contactos.map((c) => (
+          <ContactoCard
+            key={c.id}
+            id={c.id}
+            nombre={c.nombre}
+            telefono={c.telefono}
+            correo={c.correo}
+            etiqueta={c.etiqueta}
+            onDelete={eliminarContacto}
+          />
+        ))}
+      </section>
     </main>
   );
 }

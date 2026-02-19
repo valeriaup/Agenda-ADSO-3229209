@@ -75,7 +75,7 @@ export default function App() {
   );
 }*/
 
-import { useState } from "react";
+/*import { useState } from "react";
 import "./App.css";
 import ContactoCard from "./components/ContactoCard";
 import FormularioContacto from "./Components/FormularioContacto";
@@ -120,6 +120,56 @@ export default function App() {
           />
         ))}
       </section>
+    </main>
+  );
+}*/
+
+import { useState, useEffect } from "react";
+import "./App.css";
+import FormularioContacto from "./components/FormularioContacto";
+import ContactoCard from "./components/ContactoCard";
+
+export default function App() {
+  // Cargar contactos desde localStorage
+  const contactosGuardados =
+    JSON.parse(localStorage.getItem("contactos")) || [];
+
+  const [contactos, setContactos] = useState(contactosGuardados);
+
+  // Guardar contactos en localStorage cada vez que cambian
+  useEffect(() => {
+    localStorage.setItem("contactos", JSON.stringify(contactos));
+  }, [contactos]);
+
+  // Agregar contacto
+  const agregarContacto = (nuevoContacto) => {
+    setContactos((prev) => [...prev, nuevoContacto]);
+  };
+
+  // Eliminar contacto por correo
+  const eliminarContacto = (correo) => {
+    setContactos((prev) =>
+      prev.filter((contacto) => contacto.correo !== correo)
+    );
+  };
+
+  return (
+    <main className="app-container">
+      <h1 className="app-title">Agenda ADSO v3</h1>
+
+      <p className="subtitulo">
+        Persistencia con localStorage + UI moderna
+      </p>
+
+      <FormularioContacto onAgregar={agregarContacto} />
+
+      {contactos.map((contacto) => (
+        <ContactoCard
+          key={contacto.correo}
+          {...contacto}
+          onEliminar={eliminarContacto}
+        />
+      ))}
     </main>
   );
 }

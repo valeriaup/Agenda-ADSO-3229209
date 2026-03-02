@@ -98,40 +98,44 @@ export default function FormularioContacto({ onAgregar }) {
   };
 
   return (
-    <form className="form-contacto" onSubmit={onSubmit}>
-      <label>Nombre *</label>
+    <form
+      onSubmit={onSubmit}
+      className="bg-white shadow-md rounded-lg p-5 flex flex-col gap-4 mb-6"
+    >
+      <label className="text-sm font-semibold">Nombre *</label>
       <input
         name="nombre"
         value={form.nombre}
         onChange={onChange}
         placeholder="Ej: Ana López"
+        className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-morado"
       />
 
-      <label>Teléfono *</label>
+      <label className="text-sm font-semibold">Teléfono *</label>
       <input
         name="telefono"
         value={form.telefono}
         onChange={onChange}
-        placeholder="Ej: 300 123 4567"
+        className="border rounded-md p-2 focus:ring-2 focus:ring-morado"
       />
 
-      <label>Correo *</label>
+      <label className="text-sm font-semibold">Correo *</label>
       <input
         name="correo"
         value={form.correo}
         onChange={onChange}
-        placeholder="Ej: ana@sena.edu.co"
+        className="border rounded-md p-2 focus:ring-2 focus:ring-morado"
       />
 
-      <label>Etiqueta (opcional)</label>
+      <label className="text-sm font-semibold">Etiqueta (opcional)</label>
       <input
         name="etiqueta"
         value={form.etiqueta}
         onChange={onChange}
-        placeholder="Ej: Trabajo"
+        className="border rounded-md p-2 focus:ring-2 focus:ring-morado"
       />
 
-      <button className="btn-primario" type="submit">
+      <button className="bg-morado hover:bg-morado-oscuro text-white py-2 rounded-md">
         Agregar contacto
       </button>
     </form>

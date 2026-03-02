@@ -153,23 +153,35 @@ export default function App() {
     );
   };
 
-  return (
-    <main className="app-container">
-      <h1 className="app-title">Agenda ADSO v3</h1>
-
-      <p className="subtitulo">
-        Persistencia con localStorage + UI moderna
+return (
+    <main className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-xl rounded-2xl">
+      <h1 className="text-3xl font-bold text-purple-600 text-center mb-2">
+        Agenda ADSO v4
+      </h1>
+      <p className="text-gray-500 text-center mb-4">
+        Interfaz moderna con TailwindCSS
+      </p>
+      <p className="text-gray-600 text-center mb-6">
+        Pruebas sobre la implementación de Tailwind
       </p>
 
-      <FormularioContacto onAgregar={agregarContacto} />
-
-      {contactos.map((contacto) => (
-        <ContactoCard
-          key={contacto.correo}
-          {...contacto}
-          onEliminar={eliminarContacto}
-        />
-      ))}
+      <FormularioContacto onAgregar={agregarContacto}/>
+      
+      <div className="mt-6 space-y-4">
+        {contactos.length === 0 ? (
+          <p className="text-center text-gray-400">
+            No hay contactos registrados
+          </p>
+        ) : (
+          contactos.map((c) => (
+            <ContactoCard
+              key={c.correo}
+              {...c}
+              onEliminar={eliminarContacto}
+            />
+          ))
+        )}
+      </div>
     </main>
   );
 }

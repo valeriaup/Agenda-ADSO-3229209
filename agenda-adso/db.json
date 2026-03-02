@@ -1,0 +1,11 @@
+{
+    "contactos": [
+        {
+            "id": 1,
+            "nombre": "Valeria",
+            "telefono": "3135071495",
+            "correo": "usugapenagosvaleria@gmail.com",
+            "etiqueta": "estudiante"
+        }
+    ]
+}

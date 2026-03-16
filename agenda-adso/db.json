@@ -1,11 +1,18 @@
 {
   "contactos": [
     {
-      "id": "4439",
-      "nombre": "ana",
-      "telefono": "3014342881",
-      "correo": "marianita30311@hotmail.com",
-      "etiqueta": "trabajo"
+      "nombre": "juanito alimaña",
+      "telefono": "12345678",
+      "correo": "juan@gmail.com",
+      "etiqueta": "trabajo",
+      "id": "136f"
+    },
+    {
+      "nombre": "chimbilin",
+      "telefono": "12345678",
+      "correo": "chimbilin123@gmail.com",
+      "etiqueta": "trabajo",
+      "id": "2e61"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,4 +1,12 @@
 {
-  "contactos": [],
+  "contactos": [
+    {
+      "id": "4439",
+      "nombre": "ana",
+      "telefono": "3014342881",
+      "correo": "marianita30311@hotmail.com",
+      "etiqueta": "trabajo"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
